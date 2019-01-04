@@ -7,16 +7,10 @@ import RepositoriesList from './components/RepositoriesList';
 const App = () => {
   const [ query, setQuery ] = useState('');
   
-  const searchRepo = searchQuery => event => {
-    event.preventDefault();
-    setQuery(searchQuery);
-  };
-  
   return (
     <div className="App">
       <h1>Github Repositories Search</h1>
-      <SearchForm onSubmit={searchRepo} />
-      {query}
+      <SearchForm setQuery={setQuery} />
       <RepositoriesList query={query} repos={[]} />
     </div>
   );

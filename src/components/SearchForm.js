@@ -1,13 +1,15 @@
 import React, { useRef } from 'react';
 
-const searchRepo = (e) => {
-    e.preventDefault();
-};
+const SearchForm = ({ setQuery }) => {
+    const inputEl = useRef({});
 
-const SearchForm = ({ onSubmit }) => {
-    const inputEl = useRef(null);
+    const setRepoToSearch = el => event => {
+        event.preventDefault();
+        setQuery(el.current.value);
+    };
+
     return (
-        <form onSubmit={onSubmit((inputEl.current || {}).value)}>
+        <form onSubmit={setRepoToSearch(inputEl)}>
             <input ref={inputEl} type="search" />
             <button type="submit">Search</button>
         </form>

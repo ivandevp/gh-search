@@ -3,7 +3,7 @@ import RepositoryCard from './RepositoryCard';
 
 const API_ENDPOINT = 'https://api.github.com/search/repositories?q=';
 
-const RepositoriesList = ({ query }) => {
+const RepositoriesList = ({ query, setRepo, showIssues }) => {
     const [ repos, setRepos ] = useState([]);
 
     useEffect(
@@ -21,7 +21,7 @@ const RepositoriesList = ({ query }) => {
         <ul>
             {repos.map(repo => (
                 <li key={repo.id}>
-                    <RepositoryCard repo={repo}  />
+                    <RepositoryCard repo={repo} setRepo={setRepo} showIssues={showIssues}  />
                 </li>
             ))}
         </ul>

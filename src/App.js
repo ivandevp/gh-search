@@ -7,14 +7,31 @@ import RepoIssues from './components/RepoIssues';
 
 const App = () => {
   const [ query, setQuery ] = useState('');
+  const [ sortCriterion, setSortCriterion ] = useState('best-match');
+  const [ page, setPage ] = useState(1);
+  const [ lastPage, setLastPage ] = useState(Number.MAX_SAFE_INTEGER);
   const [ showIssues, setShowIssues ] = useState(false);
   const [ repo, setRepo ] = useState('');
   
   return (
     <div className="App">
       <h1>Github Repositories Search</h1>
-      <SearchForm setQuery={setQuery} />
-      <RepositoriesList query={query} showIssues={setShowIssues} setRepo={setRepo} />
+      <SearchForm
+        criterion={sortCriterion}
+        lastPage={lastPage}
+        page={page}
+        setQuery={setQuery}
+        setSortCriterion={setSortCriterion}
+        setPage={setPage}
+      />
+      <RepositoriesList
+        query={query}
+        sort={sortCriterion}
+        page={page}
+        showIssues={setShowIssues}
+        setLastPage={setLastPage}
+        setRepo={setRepo}
+      />
       {showIssues && (
         <RepoIssues repo={repo} />
       )}

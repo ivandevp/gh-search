@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import RepositoryCard from './RepositoryCard';
+import styles from './RepositoriesList.module.css';
+import repoList from './../data/repos.json';
 
 const API_ENDPOINT = 'https://api.github.com/search/repositories?q=';
 
@@ -13,9 +15,11 @@ const getLastPage = link => {
 };
 
 const RepositoriesList = ({
+    lastPage,
     page,
     query,
     setLastPage,
+    setPage,
     setRepo,
     showIssues,
     sort,
@@ -38,13 +42,21 @@ const RepositoriesList = ({
     );
 
     return (
-        <ul>
-            {(repos || []).map(repo => (
-                <li key={repo.id}>
-                    <RepositoryCard repo={repo} setRepo={setRepo} showIssues={showIssues}  />
-                </li>
-            ))}
-        </ul>
+        <React.Fragment>
+            {repos && repos.length > 1 && (
+                <div className={styles.controls}>
+                    <button disabled={page <= 1} onClick={() => setPage(--page)}>Prev</button>
+                    <button disabled={page >= lastPage} onClick={() => setPage(++page)}>Next</button>
+                </div>
+            )}
+            <ul className={styles.repoList}>
+                {(repos || []).map(repo => (
+                    <li key={repo.id} className={styles.repo}>
+                        <RepositoryCard repo={repo} setRepo={setRepo} showIssues={showIssues}  />
+                    </li>
+                ))}
+            </ul>
+        </React.Fragment>
     );
 };
 

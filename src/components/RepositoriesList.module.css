@@ -1,0 +1,41 @@
+.repoList {
+    width: 90%;
+    list-style: none;
+    margin-top: 20px;
+}
+
+.repo {
+    box-sizing: border-box;
+    height: 80px;
+    background-color: #2E4952;
+    color: #92B6B1;
+    box-shadow: 3px 3px 5px #888;
+    margin-bottom: 20px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto 30px auto;
+    width: 100%;
+}
+
+.controls > * {
+    height: 30px;
+    width: 80px;
+    border: none;
+    background-color: #B4E1FF;
+    color: #2E4952;
+    text-transform: uppercase;
+    font-family: 'Inconsolata', monospace;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.controls > *:disabled {
+    background-color: #2E4952;
+    color: #B4E1FF;
+    cursor: none;
+}

@@ -8,9 +8,10 @@ const RepositoryCard = ({ repo, setRepo, showIssues }) => (
         showIssues(true);
     }}>
         <p>
-            <strong>{repo.full_name}</strong>
-            <span>{repo.owner.login}</span>
+            <strong>{repo.full_name}</strong> by 
+            <strong> {repo.owner.login}</strong>
         </p>
+        <p>{repo.description}</p>
     </div>
 );
 

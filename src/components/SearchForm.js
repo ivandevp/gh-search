@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import SearchIcon from './SearchIcon';
 import styles from './SearchForm.module.css';
 
 const sortCriteria = [
@@ -26,9 +27,6 @@ const sortCriteria = [
 
 const SearchForm = ({
     criterion,
-    lastPage,
-    page,
-    setPage,
     setQuery,
     setSortCriterion,
 }) => {
@@ -42,12 +40,15 @@ const SearchForm = ({
     return (
         <React.Fragment>
             <form onSubmit={setRepoToSearch(inputEl)} className={styles.searchForm}>
-                <input
-                    ref={inputEl}
-                    type="search"
-                    className={styles.searchInput}
-                    placeholder="Search a repo"
-                />
+                <div className={styles.searchInputContainer}>
+                    <input
+                        ref={inputEl}
+                        type="search"
+                        className={styles.searchInput}
+                        placeholder="Search a repo ..."
+                    />
+                    <SearchIcon className={styles.searchIcon} />
+                </div>
                 <select
                     defaultValue={criterion}
                     onChange={(e) => setSortCriterion(e.target.value)}
@@ -64,10 +65,6 @@ const SearchForm = ({
                 </select>
                 <button type="submit" className={styles.searchButton}>Search</button>
             </form>
-            <div style={{ margin: 20, display: 'none' }}>
-                {page > 1 && <button onClick={() => setPage(--page)}>Prev</button>}
-                {page < lastPage && <button onClick={() => setPage(++page)}>Next</button>}
-            </div>
         </React.Fragment>
     );
 };

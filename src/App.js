@@ -11,29 +11,28 @@ const App = () => {
   const [ page, setPage ] = useState(1);
   const [ lastPage, setLastPage ] = useState(Number.MAX_SAFE_INTEGER);
   const [ showIssues, setShowIssues ] = useState(false);
-  const [ repo, setRepo ] = useState('');
+  const [ repo, setRepo ] = useState(null);
   
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>RepoSearch</h1>
       <SearchForm
         criterion={sortCriterion}
-        lastPage={lastPage}
-        page={page}
         setQuery={setQuery}
         setSortCriterion={setSortCriterion}
-        setPage={setPage}
       />
       <RepositoriesList
         query={query}
         sort={sortCriterion}
+        lastPage={lastPage}
         page={page}
         showIssues={setShowIssues}
         setLastPage={setLastPage}
+        setPage={setPage}
         setRepo={setRepo}
       />
       {showIssues && (
-        <RepoIssues repo={repo} />
+        <RepoIssues repo={repo} showIssues={setShowIssues} />
       )}
     </div>
   );

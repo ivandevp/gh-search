@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Acme|Happy+Monkey|Inconsolata');
+
+.container {
+  height: 100%;
+  margin: 0 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  margin: 16px auto;
+  color: #454372;
+  /* font-family: 'Happy Monkey', cursive; */
+  font-family: 'Acme', sans-serif;
+  font-size: 3em;
+}

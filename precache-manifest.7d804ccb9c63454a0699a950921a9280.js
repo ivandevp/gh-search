@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/gh-search/static/css/main.d7e02ff9.chunk.css"
   },
   {
-    "revision": "043baa8b92ea947e7f896f35a79ada21",
+    "revision": "ea86ce2e6623f8856d78f28847076f1d",
     "url": "/gh-search/index.html"
   }
 ];

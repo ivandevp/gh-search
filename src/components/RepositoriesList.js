@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import RepositoryCard from './RepositoryCard';
 import styles from './RepositoriesList.module.css';
-import repoList from './../data/repos.json';
 
 const API_ENDPOINT = 'https://api.github.com/search/repositories?q=';
 
